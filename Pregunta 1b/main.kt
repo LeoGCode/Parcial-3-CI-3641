@@ -1,0 +1,46 @@
+fun main() {
+    val pila = Pila<Int>()
+    pila.agregar(1)
+    pila.agregar(2)
+    pila.agregar(3)
+    println("La pila esta vacia?: ${pila.vacio()}")
+    println("Primer  elemento de la pila: ${pila.remover()}")
+    println("Segundo elemento de la pila: ${pila.remover()}")
+    println("Tercer  elemento de la pila: ${pila.remover()}")
+    println("Cuarto  elemento de la pila: ${pila.remover()}")
+    println("La pila esta vacia?: ${pila.vacio()}\nsz")
+
+    val cola = Cola<Int>()
+    cola.agregar(1)
+    cola.agregar(2)
+    cola.agregar(3)
+    println("La cola es vacia?: ${cola.vacio()}")
+    println("Primer  elemento en la cola: ${cola.remover()}")
+    println("Segundo elemento en la cola: ${cola.remover()}")
+    println("Tercer  elemento en la cola: ${cola.remover()}")
+    println("Cuarto  elemento en la cola: ${cola.remover()}")
+    println("La cola es vacia?: ${cola.vacio()}")
+
+    val g = Grafo()
+    // 0 -> 1 -> 2
+    // |    |    ^
+    // v    v    |
+    // 3 -> 4 <- 5
+    g.grafo.add(mutableListOf(1,3))
+    g.grafo.add(mutableListOf(2,4))
+    g.grafo.add(mutableListOf())
+    g.grafo.add(mutableListOf(4))
+    g.grafo.add(mutableListOf())
+    g.grafo.add(mutableListOf(4,2))
+    val dfs = DFS(g)
+    val bfs = BFS(g)
+    println()
+    println("DFS: 0 -> 2")
+    println("DFS: ${dfs.buscar(0,2)}")
+    println("DFS: 0 -> 5")
+    println("DFS: ${dfs.buscar(0,5)}")
+    println("BFS: 0 -> 2")
+    println("BFS: ${bfs.buscar(0,2)}")
+    println("BFS: 0 -> 5")
+    println("BFS: ${bfs.buscar(0,5)}")
+}
