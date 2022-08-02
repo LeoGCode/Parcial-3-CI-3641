@@ -24,8 +24,6 @@
 
 from typing import List, Dict, Tuple
 
-from matplotlib.pyplot import cla
-
 class VirtualTableManager():
     
     def __init__(self):
@@ -56,7 +54,7 @@ class VirtualTableManager():
         if class_name in self.classes.keys():
             print("Class already exists")
             return
-        if param[0] == ":":
+        if len(param) > 1 and param[0] == ":":
             if len(param) - 2 != len(set(param[2:])):
                 print("Repeated method names")
                 return
